@@ -12,6 +12,7 @@ armasStorage.forEach(arma => {
     $selectArmas.innerHTML += `<option value="${arma}">${arma}</option>`;
 });
 
+const elementoMensaje = document.getElementById("mensaje");
 
 const monstruos = LeerData("Monstruos");
 const $tabla = document.getElementById("tabla");
@@ -42,6 +43,7 @@ window.addEventListener("click", (e)=>{
     {
         const id = e.target.parentElement.dataset.id;
         
+        elementoMensaje.textContent = "";
         const selectedMostruo = monstruos.find((mostruo)=> mostruo.id == id);
         cargarFormulario($formulario, selectedMostruo);
         MostrarBotonesEliminarCancelar();
@@ -50,6 +52,7 @@ window.addEventListener("click", (e)=>{
         handlerEliminar(parseInt($formulario.txtId.value));
         $formulario.reset();
         $formulario.txtId.value = "";
+        elementoMensaje.textContent = "Baja realizada correctamente";
         OcultarBotonesEliminarCancelar();
     }
     else if(e.target.matches("input[value='Cancelar']")){
@@ -71,19 +74,22 @@ $formulario.addEventListener("submit", (e)=>{
             const nuevoMostruo = new Monstruo(Date.now(), txtNombre.value, parseInt(rangeMiedo.value), txtAlias.value, rdoDefensa.value, selectTipo.value,checkBosque.checked,checkPolar.checked,checkOceano.checked);
     
             handlerCrear(nuevoMostruo);
+            elementoMensaje.textContent = "Alta realizada Correctamente";
         }
         else{
             const monstruoActualizado = new Monstruo(parseInt(txtId.value), txtNombre.value, parseInt(rangeMiedo.value), txtAlias.value, rdoDefensa.value, selectTipo.value,checkBosque.checked,checkPolar.checked,checkOceano.checked);
-           
             handlerActualizar(monstruoActualizado);
             $btnCancelar.classList.toggle("ocultar");
             $btnEliminar.classList.toggle("ocultar");
+            elementoMensaje.textContent = "Modificacion realizada correctamente";
         }
-    
+       
+
         $formulario.reset();
     }
     else
     {
+        elementoMensaje.textContent = "";
         alert("Verifique los datos ingresados.");
     }
 });

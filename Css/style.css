@@ -4,11 +4,6 @@
     
 }
 
-/* @font-face {
-    font-family: 'Ubuntu';
-    src: url(../fonts/Ubuntu-Regular.ttf);
-} */
-
 .ocultar{
     display: none;
 }
@@ -27,6 +22,7 @@ h1{
     align-items: center;
     justify-content: center;
     color: white;
+    background-color: green;
     margin: 10px;
 }
 
@@ -124,8 +120,9 @@ thead{
 }
 
 input[type='image'] {
-  width: 60px;
-  height: 40px;
+    margin-top: 3px;
+    width: 40px;
+    height: 30px;
 }
 th, td{
     border: 1px solid black;
