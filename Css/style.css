@@ -78,9 +78,12 @@ a{
 }
 @media screen and (max-width: 1400px)
 {
-    
+    header>img{
+        display: none;
+    }
     header>nav>ul{
         display: inline-block;
+        
     }
 }  
 
@@ -153,7 +156,7 @@ tbody>tr{
 
 article{
     width: 1100px;
-    height: 220px;
+    height: 310px;
     padding: 20px;
     margin: 15px;
     border: black 3px solid;

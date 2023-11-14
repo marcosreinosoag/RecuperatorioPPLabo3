@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./Css/st.css" />
+    <link rel="stylesheet" href="./Css/style.css" />
     <script src="./js/crud.js" type="module"></script>
     <title>CRUD Monstruos</title>
 </head>
@@ -35,6 +35,12 @@
                   PLATA<input type="radio" name="rdoDefensa" value="Plata">
                   CRUCIFIJO<input type="radio" name="rdoDefensa" value="Crucifijo">
                   POCION<input type="radio" name="rdoDefensa" value="Pocion">
+                </div>
+                  <label class="label">Habitad:</label>
+                <div>
+                  <input checked required type="checkbox" name="checkBosque" id="cbox1" value="Bosque" />Bosque
+                  <input  type="checkbox" name="checkPolar" id="cbox1" value="Polar" />Polar
+                  <input  type="checkbox" name="checkOceano" id="cbox1" value="Oceano" />Oceano
                 </div>
                 <label class="label"for="rangeMiedo"><img src="./icons/miedo.png" alt="alias">Miedo:</label>
                 <input type="range" name="rangeMiedo">

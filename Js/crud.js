@@ -62,18 +62,18 @@ window.addEventListener("click", (e)=>{
 $formulario.addEventListener("submit", (e)=>{
     e.preventDefault();
 
-    const {txtId, txtNombre, rangeMiedo, txtAlias, rdoDefensa, selectTipo} = $formulario;
+    const {txtId, txtNombre, rangeMiedo, txtAlias, rdoDefensa, selectTipo, checkBosque,checkPolar,checkOceano} = $formulario;
     
     if(txtNombre.value.length < 100 && txtAlias.value.length < 100 && txtNombre.value.length > 0 && txtAlias.value.length > 0 && isNaN(txtNombre.value) && isNaN(txtAlias.value))
     {
 
         if(txtId.value === ""){
-            const nuevoMostruo = new Monstruo(Date.now(), txtNombre.value, parseInt(rangeMiedo.value), txtAlias.value, rdoDefensa.value, selectTipo.value);
+            const nuevoMostruo = new Monstruo(Date.now(), txtNombre.value, parseInt(rangeMiedo.value), txtAlias.value, rdoDefensa.value, selectTipo.value,checkBosque.checked,checkPolar.checked,checkOceano.checked);
     
             handlerCrear(nuevoMostruo);
         }
         else{
-            const monstruoActualizado = new Monstruo(parseInt(txtId.value), txtNombre.value, parseInt(rangeMiedo.value), txtAlias.value, rdoDefensa.value, selectTipo.value);
+            const monstruoActualizado = new Monstruo(parseInt(txtId.value), txtNombre.value, parseInt(rangeMiedo.value), txtAlias.value, rdoDefensa.value, selectTipo.value,checkBosque.checked,checkPolar.checked,checkOceano.checked);
            
             handlerActualizar(monstruoActualizado);
             $btnCancelar.classList.toggle("ocultar");
@@ -86,7 +86,6 @@ $formulario.addEventListener("submit", (e)=>{
     {
         alert("Verifique los datos ingresados.");
     }
-   
 });
 
 /*** FUNCIONES CRUD ***/
@@ -151,6 +150,9 @@ function cargarFormulario(formulario, monstruo){
     formulario.txtAlias.value = monstruo.alias;
     formulario.rdoDefensa.value = monstruo.defensa;
     formulario.selectTipo.value = monstruo.tipo;
+    formulario.checkBosque.checked = monstruo.bosque;
+    formulario.checkPolar.checked = monstruo.polar;
+    formulario.checkOceano.checked = monstruo.oceano;
 }
 
 function MostrarBotonesEliminarCancelar() {
